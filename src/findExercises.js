@@ -8,10 +8,24 @@ const instructors = useInstructors();
 // It should return the student object with the matching ID
 // Ex: getStudentById(1)
 
+export const getStudentById = (id) => {
+    const foundStudent = students.find((student) => {
+        return student.id === id
+    })
+    return foundStudent
+}
+
 // Export a function called getInstructorById
 // It should accept one integer parameter named `id`
 // It should return the instructor object with the matching ID
 // Ex: getInstructorById(1)
+
+export const getInstructorById = (id) => {
+    const foundInstructor = instructors.find((instructor) => {
+        return instructor.id === id
+    })
+    return foundInstructor
+}
 
 // Export a function called getStudentByLastName
 // It should accept one string parameter named `lastName`
@@ -19,16 +33,33 @@ const instructors = useInstructors();
 // It should NOT be case sensitive
 // Ex: getStudentByName("sMiTh")
 
+export const getStudentByLastName = (lastName) => {
+    const foundStudent = students.find((student) => {
+        return student.lastName.toLowerCase() === lastName.toLowerCase()
+    })
+    return foundStudent
+}
+
 // Export a function called getStudentByName
 // It should accept one string parameter named `fullName`
 // It should return the student object whose first and last name match `fullName`
 // It should NOT be case sensitive
 // Ex: getStudentByName("Summer SMITH")
 
+export const getStudentByName = (fullName) => {
+    const foundStudent = students.find((student) => {
+        const nameMatch = student.firstName + " " + student.lastName
+        return nameMatch.toLowerCase() === fullName.toLowerCase()
+    })
+    return foundStudent
+}
+
 // Export a function called getInstructorOfStudent
 // It should accept one integeter parameter named `studentId`
 // It should return the instructor object of the student whose id matches `studentId`
 // Ex: getInstructorOfStudent(4)      // returns Brenda Long
+
+
 
 // Export a function called getStudentWithMostLangs
 // It should not accept any parameters

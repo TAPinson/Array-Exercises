@@ -7,18 +7,46 @@ const instructors = useInstructors();
 // It should accept one integer parameter named `cohort`
 // It should return an array of just the students who are in that cohort
 
+export const getStudentsInCohort = (cohort) => {
+    const members = students.filter((student) => {
+        return student.cohort === 43
+    })
+    return members
+}
+
 // Export a function called getFullTimeStudents
 // It should not accept any parameters
 // It should return an array of only the full time students
+
+export const getFullTimeStudents = () => {
+    const fullTimeStudents = students.filter((student) => {
+        return student.fullTime === true
+    })
+    return fullTimeStudents
+}
 
 // Export a function called getStudentsByInstructorId
 // It should accept one integer parameter name `instructorId`
 // It should return an array of students with that instructor
 
+export const getStudentsByInstructorId = (instructorId) => {
+    const foundStudents = students.filter((student) => {
+        return student.instructorId === instructorId
+    })
+    return foundStudents
+}
+
 // Export a function called getPolyglotStudents
 // It should accept one integer parameter named `languageCount`
 // It should return an array of students who know as many (or more) languages than `languageCount`
 // Ex: If the number 2 is passed to the function, only the students who know 2 or more languages should be returned
+
+export const getPolyglotStudents = (languageCount) => {
+    const foundStudents = students.filter((student) => {
+        return student.languages.length >= languageCount
+    })
+    return foundStudents
+}
 
 // Export a function called getAvailableInstructors
 // It should not accept any parameters
