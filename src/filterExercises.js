@@ -62,7 +62,9 @@ export const getAvailableInstructors = () => {
         if (busy.includes(instructor.id)) {
             // Do Nothing
         }
-        else {available.push(instructor)}
+        else {
+            available.push(instructor)
+        }
     })
     return available
 }
@@ -71,6 +73,18 @@ export const getAvailableInstructors = () => {
 // It should accept one string parameter named `language`
 // It should return an array of students who know the given language
 // HINT: In addition to the `filter` method, you might also look up the `some` method
+
+export const getStudentsByLanguage = (language) => {
+    let knowsLanguage = []
+    const foundStudents = students.filter((student) => {
+        const studentLanguages = student.languages
+        const languageCheck = (element) => element.includes(language);
+        if (studentLanguages.some(languageCheck)) {
+            knowsLanguage.push(student)
+        }
+    })
+    return knowsLanguage
+}
 
 /******** ADVANCED CHALLENGE ********/
 /******** Only do this if all other tests are passing ****/
