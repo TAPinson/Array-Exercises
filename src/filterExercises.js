@@ -94,3 +94,20 @@ export const getStudentsByLanguage = (language) => {
 // It should accept an array of strings as a parameter named `languages`
 // It should return an array of students who know ALL of the given languages
 // Ex: getStudentsByLanguages(["Javascript", "C#"])
+
+export const getStudentsByLanguages = (languages) => {
+    // Here it goes, no 'for' loops
+    const knowsAll = students.filter((student) => {
+        const totalLanguages = languages.length
+        let counter = 0
+        languages.forEach((language) => {
+            if (student.languages.includes(language)) {
+                counter++
+            }
+        })
+        if (counter === totalLanguages) {
+            return student;
+        }
+    })
+    return knowsAll
+}
